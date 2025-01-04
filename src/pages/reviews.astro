@@ -1,0 +1,86 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Footer from "../components/Footer.astro";
+
+interface Review {
+  id: number;
+  stars: number;
+  text: string;
+}
+
+const reviews: Review[] = [
+  {
+    id: 1,
+    stars: 4.5,
+    text: "Los mejores chocolates artesanales que he probado. Totalmente recomendados. El empaque y el sabor son excepcionales. ¡Definitivamente volveré a comprar!",
+  },
+  {
+    id: 2,
+    stars: 5,
+    text: "Un regalo perfecto para cualquier ocasión. Elegancia y sabor. El empaque y el sabor son excepcionales. ¡Definitivamente volveré a comprar!",
+  },
+  {
+    id: 3,
+    stars: 4,
+    text: "El empaque y el sabor son excepcionales. ¡Definitivamente volveré a comprar! El empaque y el sabor son excepcionales. ¡Definitivamente volveré a comprar!",
+  },
+  {
+    id: 4,
+    stars: 4,
+    text: "El empaque y el sabor son excepcionales. ¡Definitivamente volveré a comprar! El empaque y el sabor son excepcionales. ¡Definitivamente volveré a comprar!",
+  },
+  {
+    id: 5,
+    stars: 4,
+    text: "El empaque y el sabor son excepcionales. ¡Definitivamente volveré a comprar! El empaque y el sabor son excepcionales. ¡Definitivamente volveré a comprar!",
+  },
+];
+---
+
+<Layout title="DeliBums">
+  <main>
+    <section class="w-full py-12 mt-20">
+      <div class="text-center">
+        <h1 class="text-4xl font-playfair font-bold text-red-400">
+          Lo que dicen nuestros clientes
+        </h1>
+        <p class="text-gray-700 text-lg mt-4">
+          Descubre sus experiencias y opiniones sobre nuestros productos.
+        </p>
+      </div>
+    </section>
+
+    <section class="w-full mb-10">
+      <div class="container mx-auto px-6 lg:px-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        {reviews.map((review) => (
+          <div
+            class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-300"
+          >
+            <div class="flex items-center gap-2 mb-4">
+              <div class="flex gap-1 text-yellow-400">
+                {Array.from({ length: 5 }).map((_, index) => (
+                  <i
+                    class={`fa ${
+                      index < Math.floor(review.stars)
+                        ? "fa-star"
+                        : index === Math.floor(review.stars) &&
+                          review.stars % 1 !== 0
+                        ? "fa-star-half-alt"
+                        : "fa-star-o text-gray-300"
+                    }`}
+                  ></i>
+                ))}
+              </div>
+              <span class="text-gray-600 text-sm">
+                {review.stars.toFixed(1)} / 5
+              </span>
+            </div>
+            <p class="text-gray-700 text-sm italic">{review.text}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+  </main>
+
+  <!-- <Footer /> -->
+</Layout>

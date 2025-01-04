@@ -1,0 +1,92 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const products = [
+  {
+    id: 1,
+    image: "/choco_ball.png",
+    name: "ChocoBum Grande Normal",
+    price: "$3.00",
+    description: "Descripción breve del producto 1. Ideal para tus necesidades.",
+  },
+  {
+    id: 2,
+    image: "/choco_ball.png",
+    name: "ChocoBum Grande Blanco",
+    price: "$3.00",
+    description: "Descripción breve del producto 2. Alta calidad garantizada.",
+  },
+  {
+    id: 3,
+    image: "/choco_ball.png",
+    name: "Pack x 2  ChocoBum Grande Normal",
+    price: "$5.00",
+    description: "Descripción breve del producto 3. Innovación y estilo.",
+  },
+  {
+    id: 4,
+    image: "/choco_ball.png",
+    name: "Pack x 2  ChocoBum Grande Blanco",
+    price: "$5.00",
+    description: "Descripción breve del producto 4. Perfecto para regalos.",
+  },
+  {
+    id: 5,
+    image: "/choco_ball.png",
+    name: "Pack x 3  ChocoBum Pequeña Normal",
+    price: "$5.00",
+    description: "Descripción breve del producto 5. Elegancia en cada detalle.",
+  },
+  {
+    id: 6,
+    image: "/choco_ball.png",
+    name: "Pack x 3  ChocoBum Pequeña Blanco",
+    price: "$5.00",
+    description: "Descripción breve del producto 6. Lo mejor en el mercado.",
+  },
+];
+
+const whatsappNumber = "593999999999";
+---
+<Layout title="DeliBums">
+  <main>
+    <section class="w-full py-12 mt-20">
+      <div class="text-center ">
+        <h1 class="text-4xl font-playfair font-bold text-orange-900">
+          Elige tu Producto Favorito
+        </h1>
+      </div>
+    </section>
+
+    <!-- Product Grid -->
+    <section class="py-5 px-4">
+      <div class="container mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Renderiza productos -->
+        {products.map((product) => (
+          <div class="bg-gray-100 rounded-lg shadow-lg overflow-hidden transition-transform duration-300 hover:scale-105 hover:shadow-2xl">
+            <img src={product.image} alt={product.name} class="w-96 h-auto object-cover mx-auto" />
+            <div class="p-6">
+              <h2 class="text-lg font-semibold text-gray-800 font-playfair">{product.name}</h2>
+              <p class="text-red-500 font-bold text-xl mt-2">{product.price}</p>
+              <p class="text-gray-600 mt-2">{product.description}</p>
+
+              <!-- Buttons -->
+              <div class="mt-6 flex gap-4">
+                <!-- WhatsApp Button -->
+                <a
+                  href={`https://wa.me/${whatsappNumber}?text=Hola,%20estoy%20interesado%20en%20${product.name}%20por%20${product.price}. Como puedo gestionar mi compra?`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="w-full flex justify-center items-center gap-2 bg-red-400 text-white font-semibold py-2 rounded-lg hover:bg-red-600 transition-colors font-playfair"
+                >
+                  <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                  Comprar
+                </a>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+  </main>
+</Layout>
