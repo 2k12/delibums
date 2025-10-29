@@ -11,28 +11,43 @@ interface Review {
 const reviews: Review[] = [
   {
     id: 1,
-    stars: 4.5,
-    text: "Los mejores chocolates artesanales que he probado. Totalmente recomendados. El empaque y el sabor son excepcionales. ¡Definitivamente volveré a comprar!",
+    stars: 5,
+    text: "Increíble sabor y textura. Se nota que son chocolates artesanales hechos con dedicación. ¡Mis favoritos sin duda!",
   },
   {
     id: 2,
-    stars: 5,
-    text: "Un regalo perfecto para cualquier ocasión. Elegancia y sabor. El empaque y el sabor son excepcionales. ¡Definitivamente volveré a comprar!",
+    stars: 4.5,
+    text: "El empaque es hermoso y elegante, ideal para regalar. El sabor intenso del chocolate oscuro me encantó.",
   },
   {
     id: 3,
     stars: 4,
-    text: "El empaque y el sabor son excepcionales. ¡Definitivamente volveré a comprar! El empaque y el sabor son excepcionales. ¡Definitivamente volveré a comprar!",
+    text: "Muy ricos y con buena presentación. Quizás un poco dulces para mi gusto, pero la calidad es excelente.",
   },
   {
     id: 4,
-    stars: 4,
-    text: "El empaque y el sabor son excepcionales. ¡Definitivamente volveré a comprar! El empaque y el sabor son excepcionales. ¡Definitivamente volveré a comprar!",
+    stars: 5,
+    text: "Perfectos para compartir en familia. Llegaron en excelente estado y con un aroma delicioso. ¡Recomendados al 100%!",
   },
   {
     id: 5,
+    stars: 4.5,
+    text: "Probé la edición de Halloween y fue un éxito en mi casa. Se ven geniales y el sabor es espectacular. Esperando la próxima temporada.",
+  },
+  {
+    id: 6,
     stars: 4,
-    text: "El empaque y el sabor son excepcionales. ¡Definitivamente volveré a comprar! El empaque y el sabor son excepcionales. ¡Definitivamente volveré a comprar!",
+    text: "Excelente relación calidad-precio. Se nota el cuidado en los detalles. Volveré a pedir sin pensarlo.",
+  },
+  {
+    id: 7,
+    stars: 5,
+    text: "Los ChocoBum blancos son una locura. Suaves, dulces y con el balance perfecto. ¡Mi nuevo postre favorito!",
+  },
+  {
+    id: 8,
+    stars: 4.5,
+    text: "Entrega rápida y presentación impecable. Ideal para regalar o darse un gusto. Se ganaron un cliente fiel.",
   },
 ];
 ---
@@ -51,33 +66,35 @@ const reviews: Review[] = [
     </section>
 
     <section class="w-full mb-10">
-      <div class="container mx-auto px-6 lg:px-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-        {reviews.map((review) => (
-          <div
-            class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-300"
-          >
-            <div class="flex items-center gap-2 mb-4">
-              <div class="flex gap-1 text-yellow-400">
-                {Array.from({ length: 5 }).map((_, index) => (
-                  <i
-                    class={`fa ${
-                      index < Math.floor(review.stars)
-                        ? "fa-star"
-                        : index === Math.floor(review.stars) &&
-                          review.stars % 1 !== 0
-                        ? "fa-star-half-alt"
-                        : "fa-star-o text-gray-300"
-                    }`}
-                  ></i>
-                ))}
+      <div
+        class="container mx-auto px-6 lg:px-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
+      >
+        {
+          reviews.map((review) => (
+            <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-300">
+              <div class="flex items-center gap-2 mb-4">
+                <div class="flex gap-1 text-yellow-400">
+                  {Array.from({ length: 5 }).map((_, index) => (
+                    <i
+                      class={`fa ${
+                        index < Math.floor(review.stars)
+                          ? "fa-star"
+                          : index === Math.floor(review.stars) &&
+                              review.stars % 1 !== 0
+                            ? "fa-star-half-alt"
+                            : "fa-star-o text-gray-300"
+                      }`}
+                    />
+                  ))}
+                </div>
+                <span class="text-gray-600 text-sm">
+                  {review.stars.toFixed(1)} / 5
+                </span>
               </div>
-              <span class="text-gray-600 text-sm">
-                {review.stars.toFixed(1)} / 5
-              </span>
+              <p class="text-gray-700 text-sm italic">{review.text}</p>
             </div>
-            <p class="text-gray-700 text-sm italic">{review.text}</p>
-          </div>
-        ))}
+          ))
+        }
       </div>
     </section>
   </main>
