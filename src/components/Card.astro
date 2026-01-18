@@ -59,3 +59,51 @@ const { href, title, body } = Astro.props;
 		color: rgb(var(--accent-light));
 	}
 </style>
+
+<script>
+	import { gsap } from "gsap";
+
+	const cards = document.querySelectorAll('.link-card');
+
+	cards.forEach((card) => {
+		const arrow = card.querySelector('h2 span');
+
+		card.addEventListener('mousemove', (e) => {
+			const rect = (card as HTMLElement).getBoundingClientRect();
+			const x = (e as MouseEvent).clientX - rect.left; // x position within the element.
+			const y = (e as MouseEvent).clientY - rect.top;  // y position within the element.
+			
+			const centerX = rect.width / 2;
+			const centerY = rect.height / 2;
+			
+			const rotateX = ((y - centerY) / centerY) * -10; // Max rotation 10 deg
+			const rotateY = ((x - centerX) / centerX) * 10;
+
+			gsap.to(card, {
+				duration: 0.5,
+				rotationX: rotateX,
+				rotationY: rotateY,
+				scale: 1.05,
+				transformPerspective: 1000,
+				ease: "power2.out"
+			});
+			
+			if (arrow) {
+				gsap.to(arrow, { x: 10, duration: 0.3, ease: "power1.out" });
+			}
+		});
+
+		card.addEventListener('mouseleave', () => {
+			gsap.to(card, {
+				duration: 0.5,
+				rotationX: 0,
+				rotationY: 0,
+				scale: 1,
+				ease: "power2.out"
+			});
+			if (arrow) {
+				gsap.to(arrow, { x: 0, duration: 0.3, ease: "power1.out" });
+			}
+		});
+	});
+</script>

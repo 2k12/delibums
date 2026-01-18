@@ -53,7 +53,7 @@ const products = [
     name: "Halloween Pack x 3 ChocoBum Normal",
     price: "$7.00",
     description: "Versión especial de Halloween con cobertura de chocolate oscuro y diseño temático. ¡Solo disponible por temporada!",
-    tag: "Solo por temporada"
+    tag: "Sin Stock"
   },
   {
     id: 8,
@@ -61,7 +61,7 @@ const products = [
     name: "Halloween Pack x 3 ChocoBum Blanco",
     price: "$7.00",
     description: "Dulce edición de Halloween con cobertura de chocolate blanco y detalles festivos. ¡Edición limitada!",
-    tag: "Solo por temporada"
+    tag: "Sin Stock"
   },
 ];
 
@@ -70,47 +70,125 @@ const whatsappNumber = "593994806701";
 ---
 <Layout title="DeliBums">
   <main>
-    <section class="w-full py-12 mt-20">
-      <div class="text-center ">
-        <h1 class="text-4xl font-playfair font-bold text-orange-900">
-          Elige tu Producto Favorito
-        </h1>
-      </div>
-    </section>
+    <section class="w-full pt-32 pb-20 px-6 bg-cream min-h-screen">
+      <div class="container mx-auto">
+          <div class="text-center mb-20">
+            <h1 class="text-6xl md:text-8xl font-playfair text-chocolate mb-4 reveal-title">Colección</h1>
+            <p class="text-terracotta font-sans tracking-widest uppercase text-sm reveal-title">Edición Limitada</p>
+          </div>
 
-    <section class="py-5 px-4">
-      <div class="container mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-      {products.map((product) => (
-  <div class="relative bg-gray-100 rounded-lg shadow-lg overflow-hidden transition-transform duration-300 hover:scale-105 hover:shadow-2xl">
-    {product.tag && (
-      <div class="absolute top-3 left-3 bg-orange-400 text-white text-xs font-semibold px-3 py-1 rounded-full uppercase z-10 font-playfair shadow-md">
-        {product.tag}
-      </div>
-    )}
-    <img src={product.image} alt={product.name} class="w-96 h-auto object-cover mx-auto" />
-    <div class="p-6">
-      <h2 class="text-lg font-semibold text-gray-800 font-playfair">{product.name}</h2>
-      <p class="text-red-500 font-bold text-xl mt-2">{product.price}</p>
-      <p class="text-gray-600 mt-2">{product.description}</p>
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {products.map((product) => (
+            <div class="product-card group relative cursor-pointer bg-white border border-chocolate/10 rounded-xl transition-all duration-500 hover:-translate-y-2 hover:translate-x-2 hover:shadow-[-12px_12px_0px_#2d1b14] hover:border-chocolate">
+                
+                {product.tag && (
+                <div class={`absolute top-4 right-4 text-white text-[10px] font-bold px-3 py-1 uppercase tracking-widest z-10 rounded-full ${product.tag === 'Sin Stock' ? 'bg-gray-400' : 'bg-terracotta'}`}>
+                    {product.tag}
+                </div>
+                )}
+                
+                <div class="relative w-full aspect-square overflow-hidden rounded-t-xl bg-[#f8f5f2] mb-4 flex items-center justify-center">
+                    <img 
+                        src={product.image} 
+                        alt={product.name} 
+                        class={`w-4/5 h-4/5 object-contain transition-transform duration-500 ease-out ${product.tag === 'Sin Stock' ? 'grayscale opacity-50' : 'group-hover:scale-110 group-hover:rotate-3'}`} 
+                    />
+                    
+                    {/* Minimalist Quick Add Button - Appears on Hover */}
+                    {product.tag !== 'Sin Stock' && (
+                        <div class="absolute bottom-4 left-0 right-0 flex justify-center opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 delay-100">
+                             <a
+                            href={`https://wa.me/${whatsappNumber}?text=Hola,%20deseo%20ordenar%20${product.name}`}
+                            target="_blank"
+                            class="bg-chocolate text-cream px-6 py-2 font-sans font-medium text-xs tracking-widest rounded-full hover:bg-terracotta transition-colors shadow-lg"
+                            >
+                            + Agregar
+                            </a>
+                        </div>
+                    )}
+                </div>
 
-      <!-- Buttons -->
-      <div class="mt-6 flex gap-4">
-        <!-- WhatsApp Button -->
-        <a
-          href={`https://wa.me/${whatsappNumber}?text=Hola,%20estoy%20interesado%20en%20${product.name}%20por%20${product.price}.%20¿Cómo%20puedo%20gestionar%20mi%20compra?`}
-          target="_blank"
-          rel="noopener noreferrer"
-          class="w-full flex justify-center items-center gap-2 bg-red-400 text-white font-semibold py-2 rounded-lg hover:bg-red-600 transition-colors font-playfair"
-        >
-          <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-          Comprar
-        </a>
-      </div>
-    </div>
-  </div>
-))}
-
+                <div class="px-5 pb-6 text-left">
+                    <p class="text-terracotta font-sans font-bold text-base mb-1">{product.price}</p>
+                    <h2 class="text-lg font-playfair font-bold text-chocolate leading-tight mb-2 group-hover:text-terracotta transition-colors">{product.name}</h2>
+                    <p class="text-gray-400 text-xs font-sans font-light leading-relaxed line-clamp-2">{product.description}</p>
+                </div>
+            </div>
+            ))}
+          </div>
       </div>
     </section>
   </main>
 </Layout>
+
+<script>
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  document.addEventListener("DOMContentLoaded", () => {
+    // Title Reveal
+    gsap.from(".reveal-title", {
+        y: 50,
+        opacity: 0,
+        duration: 1.2,
+        stagger: 0.2,
+        ease: "power3.out"
+    });
+
+    // Product Animation - Batch Trigger (Robust)
+    gsap.set(".product-card", { y: 50, opacity: 0 });
+    
+    ScrollTrigger.batch(".product-card", {
+        interval: 0.1, // time window to batch items
+        batchMax: 4,   // max items per batch
+        onEnter: (batch) => {
+            gsap.to(batch, {
+                opacity: 1,
+                y: 0,
+                stagger: 0.15,
+                duration: 0.8,
+                ease: "power2.out",
+                overwrite: true
+            });
+        },
+        start: "top 90%", // Trigger when top of card hits 90% of viewport
+        once: true        // Only animate once
+    });
+
+    // 3D Tilt Effect for Catalog Cards
+    const cards = document.querySelectorAll('.product-card');
+    cards.forEach((card) => {
+        card.addEventListener('mousemove', (e) => {
+            const rect = (card as HTMLElement).getBoundingClientRect();
+            const x = (e as MouseEvent).clientX - rect.left;
+            const y = (e as MouseEvent).clientY - rect.top;
+            
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+            
+            // Subtle rotation
+            const rotateX = ((y - centerY) / centerY) * -5; 
+            const rotateY = ((x - centerX) / centerX) * 5;
+
+            gsap.to(card, {
+                duration: 0.5,
+                rotationX: rotateX,
+                rotationY: rotateY,
+                transformPerspective: 1000,
+                ease: "power2.out"
+            });
+        });
+
+        card.addEventListener('mouseleave', () => {
+            gsap.to(card, {
+                duration: 0.5,
+                rotationX: 0,
+                rotationY: 0,
+                ease: "power2.out"
+            });
+        });
+    });
+  });
+</script>

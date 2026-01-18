@@ -1,7 +1,103 @@
-<footer class="bg-gray-100">
-  <div class="w-full mx-auto max-w-screen-xl p-4 flex flex-col items-center justify-center text-center">
-    <span class="text-md text-gray-500 dark:text-gray-400">
-      © 2024 | Todos los Derechos Reservados. | Made with ❤️ by 2k12
-    </span>
+<footer class="bg-chocolate text-cream pt-20 pb-10 overflow-hidden relative">
+  <div class="container mx-auto px-6 relative z-10">
+    <div
+      class="grid grid-cols-1 md:grid-cols-12 gap-12 mb-20 border-b border-cream/10 pb-12"
+    >
+      <!-- Brand Column -->
+      <div class="md:col-span-5 flex flex-col justify-between">
+        <a href="/" class="group inline-block mb-6">
+          <h2
+            class="text-6xl font-playfair font-bold text-soft-pink tracking-tight group-hover:tracking-wide transition-all duration-500"
+          >
+            DeliBums
+          </h2>
+        </a>
+        <p class="font-sans font-light text-cream/60 max-w-sm leading-relaxed">
+          Chocolatería artesanal redefinida. Cada pieza es una obra de arte
+          esculpida para los sentidos.
+        </p>
+      </div>
+
+      <!-- Navigation Column -->
+      <div class="md:col-span-3 md:col-start-7">
+        <h3
+          class="font-sans font-bold text-sm tracking-[0.2em] uppercase text-terracotta mb-8"
+        >
+          Explorar
+        </h3>
+        <nav class="flex flex-col gap-4">
+          <a
+            href="/"
+            class="font-playfair text-xl hover:text-soft-pink transition-colors w-max relative group"
+          >
+            Inicio
+            <span
+              class="absolute -bottom-1 left-0 w-0 h-px bg-soft-pink transition-all duration-300 group-hover:w-full"
+            ></span>
+          </a>
+          <a
+            href="/catalog"
+            class="font-playfair text-xl hover:text-soft-pink transition-colors w-max relative group"
+          >
+            Colección
+            <span
+              class="absolute -bottom-1 left-0 w-0 h-px bg-soft-pink transition-all duration-300 group-hover:w-full"
+            ></span>
+          </a>
+          <a
+            href="/reviews"
+            class="font-playfair text-xl hover:text-soft-pink transition-colors w-max relative group"
+          >
+            Reseñas
+            <span
+              class="absolute -bottom-1 left-0 w-0 h-px bg-soft-pink transition-all duration-300 group-hover:w-full"
+            ></span>
+          </a>
+        </nav>
+      </div>
+
+      <!-- Social/Contact Column -->
+      <div class="md:col-span-3">
+        <h3
+          class="font-sans font-bold text-sm tracking-[0.2em] uppercase text-terracotta mb-8"
+        >
+          Social
+        </h3>
+        <div class="flex flex-col gap-4">
+          <!-- <a href="#" target="_blank" class="flex items-center gap-3 group hover:text-soft-pink transition-colors">
+                <i class="fa fa-instagram text-xl group-hover:scale-110 transition-transform"></i>
+                <span class="font-sans font-light">@delibums_ec</span>
+            </a> -->
+          <a
+            href="#"
+            target="_blank"
+            class="flex items-center gap-3 group hover:text-soft-pink transition-colors"
+          >
+            <!-- <i
+              class="fa fa-whatsapp text-xl group-hover:scale-110 transition-transform"
+            ></i> -->
+            <span class="font-sans font-light">+593 99 480 6701</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Copyright -->
+    <div
+      class="flex flex-col md:flex-row justify-between items-center text-xs font-sans text-cream/40 uppercase tracking-widest gap-4"
+    >
+      <p>&copy; 2024 DeliBums.</p>
+      <p>
+        Desarrollado por <span class="text-terracotta font-medium"
+          >2K12 Solutions</span
+        >
+      </p>
+    </div>
+  </div>
+
+  <!-- Decorative Background Blur -->
+  <div
+    class="absolute bottom-0 left-0 w-full h-[500px] bg-terracotta/5 blur-[100px] pointer-events-none z-0"
+  >
   </div>
 </footer>

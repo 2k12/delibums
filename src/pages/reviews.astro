@@ -52,52 +52,83 @@ const reviews: Review[] = [
 ];
 ---
 
-<Layout title="DeliBums">
-  <main>
-    <section class="w-full py-12 mt-20">
-      <div class="text-center">
-        <h1 class="text-4xl font-playfair font-bold text-red-400">
-          Lo que dicen nuestros clientes
+<Layout title="DeliBums | Testimonios">
+  <main class="bg-cream min-h-screen">
+    <section class="w-full pt-32 pb-12 px-6">
+      <div class="container mx-auto text-center">
+        <h1 class="text-5xl md:text-6xl font-playfair text-chocolate mb-6 reveal-item">
+          Voces de Nuestros Clientes
         </h1>
-        <p class="text-gray-700 text-lg mt-4">
-          Descubre sus experiencias y opiniones sobre nuestros productos.
+        <p class="text-terracotta font-sans text-sm tracking-widest uppercase reveal-item">
+          Experiencias Reales
         </p>
       </div>
     </section>
 
-    <section class="w-full mb-10">
+    <section class="w-full pb-20 px-6">
       <div
-        class="container mx-auto px-6 lg:px-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
+        class="container mx-auto columns-1 md:columns-2 lg:columns-3 gap-8 space-y-8"
       >
         {
           reviews.map((review) => (
-            <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-300">
-              <div class="flex items-center gap-2 mb-4">
-                <div class="flex gap-1 text-yellow-400">
+            <div class="bg-white p-8 break-inside-avoid border border-chocolate/5 hover:border-chocolate/20 transition-colors duration-500 reveal-card">
+              <div class="flex items-center gap-2 mb-6">
+                <div class="flex gap-1 text-terracotta">
                   {Array.from({ length: 5 }).map((_, index) => (
                     <i
                       class={`fa ${
                         index < Math.floor(review.stars)
                           ? "fa-star"
                           : index === Math.floor(review.stars) &&
-                              review.stars % 1 !== 0
-                            ? "fa-star-half-alt"
-                            : "fa-star-o text-gray-300"
-                      }`}
+                               review.stars % 1 !== 0
+                             ? "fa-star-half-alt"
+                             : "fa-star-o text-gray-200"
+                      } text-xs`}
                     />
                   ))}
                 </div>
-                <span class="text-gray-600 text-sm">
-                  {review.stars.toFixed(1)} / 5
-                </span>
+                <!-- Optional: Date or Verified Badge -->
               </div>
-              <p class="text-gray-700 text-sm italic">{review.text}</p>
+              <p class="text-chocolate/80 font-sans font-light leading-relaxed italic">"{review.text}"</p>
+              <div class="mt-6 pt-4 border-t border-chocolate/5 flex justify-between items-center">
+                  <span class="text-xs font-sans uppercase tracking-widest text-chocolate/40">Cliente Verificado</span>
+                  <span class="text-xs font-playfair font-bold text-chocolate">{review.stars.toFixed(1)}</span>
+              </div>
             </div>
           ))
         }
       </div>
     </section>
   </main>
-
-  <!-- <Footer /> -->
 </Layout>
+
+<script>
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  document.addEventListener("DOMContentLoaded", () => {
+    // Reveal Header
+    gsap.from(".reveal-item", {
+        y: 30,
+        opacity: 0,
+        duration: 1,
+        stagger: 0.2,
+        ease: "power3.out"
+    });
+
+    // Reveal Cards
+    gsap.from(".reveal-card", {
+        y: 50,
+        opacity: 0,
+        duration: 0.8,
+        stagger: 0.1,
+        ease: "power2.out",
+        scrollTrigger: {
+            trigger: ".reveal-card",
+            start: "top 90%"
+        }
+    });
+  });
+</script>

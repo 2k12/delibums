@@ -2,120 +2,265 @@
 import Layout from "../layouts/Layout.astro";
 ---
 
-<Layout title="DeliBums">
-  <main>
-    <section
-      class="w-full lg:w-[1000px] mx-auto flex flex-col lg:flex-row items-center gap-8 py-20 px-6"
-    >
-      <div class="mt-10 lg:mt-0 w-full lg:w-[50%] text-center lg:text-left">
-        <h1 class="text-gray-700 text-4xl lg:text-5xl font-bold font-playfair">
-          Deli<span class="text-red-400">Bums</span>
-        </h1>
-        <h2 class="text-gray-700 text-lg lg:text-2xl mt-3">
-          Explora la magia del chocolate artesanal.
-        </h2>
-      </div>
-      <div class="w-full lg:w-[50%] flex justify-center">
-        <img
-          src="/choco_ball_principal.png"
-          alt="Chocobombs artesanales"
-          class="max-w-full h-auto"
-        />
-      </div>
-    </section>
+<Layout title="DeliBums | Chocolate Gallery">
+    <main class="overflow-x-hidden">
+        <!-- Hero Section -->
+        <section
+            id="hero"
+            class="relative h-screen w-full flex items-center justify-center overflow-hidden bg-cream"
+        >
+            <div
+                class="relative z-10 flex flex-col items-center justify-center"
+            >
+                <h1
+                    class="hero-title text-[18vw] leading-none font-playfair font-bold text-soft-pink z-20"
+                >
+                    <span class="inline-block overflow-hidden"
+                        ><span class="block reveal-text">DELI</span></span
+                    >
+                </h1>
+                <h1
+                    class="hero-title text-[18vw] leading-none font-playfair font-bold text-soft-pink z-20 mt-[-4vw]"
+                >
+                    <span class="inline-block overflow-hidden"
+                        ><span class="block reveal-text">BUMS</span></span
+                    >
+                </h1>
 
-    <section class="w-full py-13 bg-gray-100 px-6">
-      <div
-        class="container mx-auto grid grid-cols-1 lg:grid-cols-3 gap-12 items-center py-10"
-      >
-        <div class="text-left lg:text-left">
-          <h3 class="text-3xl font-playfair font-bold text-red-400 mb-6">
-            ¿Por qué elegirnos?
-          </h3>
-          <ul class="space-y-4">
-            <li class="flex items-start gap-4">
-              <p class="text-gray-700 text-base lg:text-lg">
-                Productos hechos con chocolate de alta calidad.
-              </p>
-            </li>
-            <li class="flex items-start gap-4">
-              <p class="text-gray-700 text-base lg:text-lg">
-                Rellenos irresistibles y personalizados.
-              </p>
-            </li>
-            <li class="flex items-start gap-4">
-              <p class="text-gray-700 text-base lg:text-lg">
-                Ideales para regalos o momentos especiales.
-              </p>
-            </li>
-          </ul>
-        </div>
-        <div class="flex justify-center">
-          <img
-            src="choco_chef.png"
-            alt="Imagen de Chocobomb"
-            class="max-w-full h-auto"
-          />
-        </div>
-        <div class="text-right lg:text-left">
-          <h3 class="text-3xl font-playfair font-bold text-orange-900 mb-6">
-            ¿Por qué lo hacemos tan especial?
-          </h3>
-          <ul class="space-y-4">
-            <li>
-              <p class="text-gray-700 text-base lg:text-lg">
-                Solo utilizamos ingredientes de la mejor calidad.
-              </p>
-            </li>
-            <li>
-              <p class="text-gray-700 text-base lg:text-lg">
-                Cada chocobum es hecho con dedicación y pasión.
-              </p>
-            </li>
-            <li>
-              <p class="text-gray-700 text-base lg:text-lg">
-                Pensamos en cada detalle para tu satisfacción.
-              </p>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </section>
+                <p
+                    class="hero-desc opacity-0 text-xl font-sans tracking-[0.2em] text-chocolate mt-8 uppercase"
+                >
+                    Chocolatería Artesanal
+                </p>
+            </div>
 
-    <section class="w-full py-10 px-6">
-      <div
-        class="container mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center"
-      >
-        <div class="text-center">
-          <h3 class="text-4xl font-playfair font-bold text-gray-700 ">
-            ¿Cómo Comprar?
-          </h3>
-        </div>
-        <div class="mb-6">
-          <ul class="space-y-4">
-            <li>
-              <p class="text-gray-700 lg:text-lg">
-                <span class="text-red-400 font-semibold">1.</span> Explora nuestro catálogo.
-              </p>
-            </li>
-            <li>
-              <p class="text-gray-700 lg:text-lg">
-                <span class="text-red-400 font-semibold">2.</span> Haz clic en el botón de Comprar.
-              </p>
-            </li>
-            <li>
-              <p class="text-gray-700 lg:text-lg">
-                <span class="text-red-400 font-semibold">3.</span> Genera tu orden.
-              </p>
-            </li>
-            <li>
-              <p class="text-gray-700 lg:text-lg">
-                <span class="text-red-400 font-semibold">4.</span> Cordina la entrega y disfruta.
-              </p>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </section>
-  </main>
+            <!-- Abstract Background Shapes (CSS only) to replace pixelated image -->
+            <div class="absolute inset-0 pointer-events-none z-0">
+                <div
+                    class="absolute top-1/4 left-1/4 w-96 h-96 bg-soft-pink/20 rounded-full blur-3xl animate-pulse"
+                >
+                </div>
+                <div
+                    class="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-terracotta/10 rounded-full blur-3xl"
+                >
+                </div>
+            </div>
+        </section>
+
+        <!-- Horizontal Scroll Showcase -->
+        <section
+            id="showcase-pin"
+            class="h-screen w-full bg-chocolate text-cream overflow-hidden"
+        >
+            <div
+                id="showcase-container"
+                class="h-full flex items-center gap-6 md:gap-20 px-6 md:px-20 w-[350vw] md:w-[300vw]"
+            >
+                <div
+                    class="flex-shrink-0 w-[85vw] md:w-[60vw] flex flex-col justify-center"
+                >
+                    <h2
+                        class="text-5xl md:text-8xl font-playfair mb-4 md:mb-8 text-soft-pink leading-tight"
+                    >
+                        La Colección
+                    </h2>
+                    <p
+                        class="text-lg md:text-2xl font-sans font-light max-w-sm md:max-w-2xl text-cream/80 leading-relaxed"
+                    >
+                        Cada pieza es esculpida a mano, utilizando cacao de
+                        origen único y rellenos que desafían lo convencional.
+                    </p>
+                </div>
+
+                <!-- Card 1 -->
+                <div
+                    class="showcase-item flex-shrink-0 w-[85vw] md:w-[40vw] h-[60vh] md:h-[70vh] relative group overflow-hidden bg-cream/5 mx-2 md:mx-10 rounded-2xl border border-white/10 shadow-2xl"
+                >
+                    <img
+                        src="/choco_ball.png"
+                        class="absolute inset-0 w-full h-full object-cover opacity-80 md:opacity-80 group-hover:opacity-100 transition-opacity duration-500 group-hover:scale-105 transition-transform ease-out"
+                    />
+                    <div
+                        class="absolute bottom-0 left-0 p-6 md:p-10 w-full bg-gradient-to-t from-chocolate via-chocolate/80 to-transparent"
+                    >
+                        <span
+                            class="text-xs md:text-sm font-sans uppercase tracking-widest text-soft-pink border-b border-soft-pink/30 pb-2 mb-2 md:mb-4 inline-block"
+                            >Clásico</span
+                        >
+                        <h3
+                            class="text-3xl md:text-4xl font-playfair text-white"
+                        >
+                            Dark Velvet
+                        </h3>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div
+                    class="showcase-item flex-shrink-0 w-[85vw] md:w-[40vw] h-[60vh] md:h-[70vh] relative group overflow-hidden bg-cream/5 mx-2 md:mx-10 rounded-2xl border border-white/10 shadow-2xl"
+                >
+                    <img
+                        src="/choco_ballw.png"
+                        class="absolute inset-0 w-full h-full object-cover opacity-80 md:opacity-80 group-hover:opacity-100 transition-opacity duration-500 group-hover:scale-105 transition-transform ease-out"
+                    />
+                    <div
+                        class="absolute bottom-0 left-0 p-6 md:p-10 w-full bg-gradient-to-t from-chocolate via-chocolate/80 to-transparent"
+                    >
+                        <span
+                            class="text-xs md:text-sm font-sans uppercase tracking-widest text-soft-pink border-b border-soft-pink/30 pb-2 mb-2 md:mb-4 inline-block"
+                            >Blanco</span
+                        >
+                        <h3
+                            class="text-3xl md:text-4xl font-playfair text-white"
+                        >
+                            Ivory Dream
+                        </h3>
+                    </div>
+                </div>
+
+                <!-- Card 3 (See All - Redesigned) -->
+                <div
+                    class="showcase-item flex-shrink-0 w-[85vw] md:w-[30vw] h-[60vh] md:h-[70vh] relative mx-2 md:mx-10 flex items-center justify-center"
+                >
+                    <a
+                        href="/catalog"
+                        class="group relative w-full h-full bg-soft-pink text-chocolate flex flex-col items-center justify-center rounded-2xl overflow-hidden transition-colors hover:bg-white shadow-2xl"
+                    >
+                        <div
+                            class="absolute inset-0 bg-white/0 group-hover:bg-white/10 transition-colors"
+                        >
+                        </div>
+                        <span
+                            class="text-6xl md:text-8xl mb-4 md:mb-6 transform group-hover:translate-x-4 transition-transform duration-500 font-light"
+                            >&rarr;</span
+                        >
+                        <span
+                            class="text-xl md:text-2xl font-playfair italic tracking-wider group-hover:tracking-widest transition-all duration-500"
+                            >Explorar Todo</span
+                        >
+
+                        <!-- Decoration -->
+                        <div
+                            class="absolute -bottom-20 -right-20 w-48 h-48 md:w-64 md:h-64 bg-white/20 rounded-full blur-2xl group-hover:scale-150 transition-transform duration-700"
+                        >
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Minimal Steps -->
+        <section
+            class="min-h-screen flex items-center justify-center bg-off-white py-20 px-6"
+        >
+            <div class="container mx-auto">
+                <h3
+                    class="text-center text-4xl font-sans font-light text-chocolate mb-20 tracking-widest uppercase"
+                >
+                    Proceso de Compra
+                </h3>
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
+                    {
+                        [1, 2, 3, 4].map((step) => (
+                            <div class="step-card group relative">
+                                <div class="text-9xl font-playfair text-terracotta/20 absolute -top-12 -left-6 z-0 group-hover:text-terracotta/40 transition-colors duration-500">
+                                    0{step}
+                                </div>
+                                <div class="relative z-10 p-6 border-l border-chocolate/20 h-full">
+                                    <h4 class="text-xl font-bold font-playfair mb-4">
+                                        {step === 1
+                                            ? "Explora"
+                                            : step === 2
+                                              ? "Selecciona"
+                                              : step === 3
+                                                ? "Ordena"
+                                                : "Disfruta"}
+                                    </h4>
+                                    <p class="font-sans text-sm text-gray-600">
+                                        {step === 1
+                                            ? "Descubre nuestra selección curada de chocolates."
+                                            : step === 2
+                                              ? "Elige tus favoritos y agrégalos a tu deseo."
+                                              : step === 3
+                                                ? "Confirma tu pedido a través de nuestro concierge."
+                                                : "Recibe la magia en la puerta de tu hogar."}
+                                    </p>
+                                </div>
+                            </div>
+                        ))
+                    }
+                </div>
+            </div>
+        </section>
+    </main>
 </Layout>
+
+<script>
+    import { gsap } from "gsap";
+    import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+    gsap.registerPlugin(ScrollTrigger);
+
+    document.addEventListener("DOMContentLoaded", () => {
+        // Hero Animations
+        const tl = gsap.timeline();
+
+        tl.to(".reveal-text", {
+            y: 0,
+            opacity: 1,
+            duration: 1.5,
+            ease: "power4.out",
+            stagger: 0.2,
+        }).to(
+            ".hero-desc",
+            {
+                opacity: 1,
+                y: 0,
+                duration: 1,
+            },
+            "-=1",
+        );
+
+        // Horizontal Scroll
+        const showcaseContainer = document.getElementById("showcase-container");
+
+        if (showcaseContainer) {
+            gsap.to(showcaseContainer, {
+                xPercent: -100,
+                x: () => window.innerWidth,
+                ease: "none",
+                scrollTrigger: {
+                    trigger: "#showcase-pin",
+                    pin: true,
+                    scrub: 1,
+                    start: "top top",
+                    end: "+=2000",
+                    anticipatePin: 1,
+                },
+            });
+        }
+
+        // Step Cards Stagger
+        gsap.from(".step-card", {
+            y: 50,
+            opacity: 0,
+            duration: 0.8,
+            stagger: 0.2,
+            scrollTrigger: {
+                trigger: ".step-card",
+                start: "top 80%",
+            },
+        });
+    });
+</script>
+
+<style>
+    .reveal-text {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+
+    .hero-image-container {
+        clip-path: inset(20% 40% 20% 40%);
+    }
+</style>
